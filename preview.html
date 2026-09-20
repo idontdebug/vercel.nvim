@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vercel.nvim 预览</title>
+<style>
+  :root{
+    --bg:#000000; --bg-alt:#0a0a0a; --line:#1a1a1a; --sel:#003161;
+    --border:#2e2e2e; --gutter:#575757;
+    --fg:#ededed; --dim:#a1a1a1; --muted:#8f8f8f; --comment:#7d7d7d;
+    --blue:#52a8ff; --cyan:#50e3c2; --green:#62c073; --amber:#ffcb47;
+    --purple:#bf7af0; --pink:#ff6fae; --red:#ff6369;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+       font-size:13px;line-height:1.65;padding:16px}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:15px;font-weight:600;letter-spacing:.02em;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:12px;margin:0 0 20px}
+  .win{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg)}
+  .tabs{display:flex;background:#000;border-bottom:1px solid var(--border);font-size:12px}
+  .tab{padding:6px 14px;color:#575757;background:var(--bg-alt)}
+  .tab.on{color:var(--fg);background:var(--bg);border-bottom:1px solid var(--blue)}
+  .body{display:flex}
+  .tree{width:180px;flex:none;background:var(--bg-alt);border-right:1px solid var(--border);
+        padding:8px 10px;font-size:12px;color:var(--dim)}
+  .tree .root{color:var(--fg);font-weight:600;margin-bottom:4px}
+  .tree .d{color:var(--blue)}
+  .tree .add{color:var(--green)}
+  .tree .mod{color:var(--amber)}
+  .tree .on{color:var(--fg);font-weight:600}
+  .code{flex:1;min-width:0;overflow-x:auto;padding:8px 0}
+  .ln{display:flex}
+  .ln.cur{background:var(--line)}
+  .ln.sel .t{background:var(--sel)}
+  .n{width:46px;flex:none;text-align:right;padding-right:14px;color:var(--gutter);user-select:none}
+  .ln.cur .n{color:var(--fg);font-weight:600}
+  .g{width:14px;flex:none;text-align:center}
+  .t{white-space:pre}
+  .st{display:flex;font-size:12px;background:var(--bg-alt);border-top:1px solid var(--border)}
+  .st .m{background:var(--fg);color:#000;font-weight:700;padding:3px 12px}
+  .st .b{background:#1f1f1f;color:var(--dim);padding:3px 12px}
+  .st .c{color:#7d7d7d;padding:3px 12px;flex:1}
+  .st .r{color:var(--dim);padding:3px 12px}
+  .kw{color:var(--purple)} .fn{color:var(--blue)} .str{color:var(--green)}
+  .num{color:var(--amber)} .ty{color:var(--cyan)} .pk{color:var(--pink)}
+  .cm{color:var(--comment);font-style:italic} .op{color:var(--dim)}
+  .pn{color:var(--muted)} .pr{color:var(--dim)} .er{color:var(--red)}
+  .hint{color:#575757;font-style:italic}
+  .pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:20px}
+  .sw{border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:11px}
+  .sw .dot{width:100%;height:22px;border-radius:3px;margin-bottom:6px}
+  .sw .nm{color:var(--dim)} .sw .hx{color:var(--muted)}
+  @media(max-width:640px){.tree{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>vercel.nvim</h1>
+  <p class="sub">纯黑背景 · Geist 色阶 · 强调色仅用于关键字、函数、字符串、字面量、类型</p>
+
+  <div class="win">
+    <div class="tabs">
+      <div class="tab on">app/page.tsx</div>
+      <div class="tab">lib/db.ts</div>
+      <div class="tab">README.md</div>
+    </div>
+    <div class="body">
+      <div class="tree">
+        <div class="root">~/project</div>
+        <div><span class="d">▾ app</span></div>
+        <div style="padding-left:12px" class="on">page.tsx</div>
+        <div style="padding-left:12px" class="mod">layout.tsx</div>
+        <div><span class="d">▾ lib</span></div>
+        <div style="padding-left:12px" class="add">db.ts</div>
+        <div style="padding-left:12px">utils.ts</div>
+        <div>package.json</div>
+        <div style="color:#575757">node_modules</div>
+      </div>
+      <div class="code">
+<div class="ln"><span class="n">1</span><span class="g"></span><span class="t"><span class="cm">// 获取部署列表并按创建时间排序</span></span></div>
+<div class="ln"><span class="n">2</span><span class="g"></span><span class="t"><span class="pk">import</span> <span class="pn">{</span> cache <span class="pn">}</span> <span class="pk">from</span> <span class="str">"react"</span><span class="pn">;</span></span></div>
+<div class="ln"><span class="n">3</span><span class="g"></span><span class="t"><span class="pk">import</span> <span class="pn">{</span> <span class="ty">Deployment</span> <span class="pn">}</span> <span class="pk">from</span> <span class="str">"@/lib/types"</span><span class="pn">;</span></span></div>
+<div class="ln"><span class="n">4</span><span class="g"></span><span class="t"></span></div>
+<div class="ln"><span class="n">5</span><span class="g"></span><span class="t"><span class="kw">const</span> <span class="ty">LIMIT</span> <span class="op">=</span> <span class="num">50</span><span class="pn">;</span></span></div>
+<div class="ln"><span class="n">6</span><span class="g"></span><span class="t"></span></div>
+<div class="ln"><span class="n">7</span><span class="g"></span><span class="t"><span class="kw">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fn">listDeployments</span><span class="pn">(</span></span></div>
+<div class="ln"><span class="n">8</span><span class="g"></span><span class="t">  <span class="pr">projectId</span><span class="pn">:</span> <span class="ty">string</span><span class="pn">,</span></span></div>
+<div class="ln"><span class="n">9</span><span class="g"></span><span class="t">  <span class="pr">limit</span><span class="pn">:</span> <span class="ty">number</span> <span class="op">=</span> <span class="ty">LIMIT</span><span class="pn">,</span></span></div>
+<div class="ln"><span class="n">10</span><span class="g"></span><span class="t"><span class="pn">)</span><span class="pn">:</span> <span class="ty">Promise</span><span class="pn">&lt;</span><span class="ty">Deployment</span><span class="pn">[]&gt; {</span></span></div>
+<div class="ln cur"><span class="n">11</span><span class="g"></span><span class="t">  <span class="kw">const</span> rows <span class="op">=</span> <span class="kw">await</span> <span class="fn">query</span><span class="pn">(</span><span class="str">`SELECT * FROM deployments`</span><span class="pn">,</span> <span class="pn">{</span> <span class="pr">projectId</span> <span class="pn">}</span><span class="pn">);</span> <span class="hint">// rows: Row[]</span></span></div>
+<div class="ln"><span class="n">12</span><span class="g"></span><span class="t"></span></div>
+<div class="ln sel"><span class="n">13</span><span class="g"></span><span class="t">  <span class="kw">if</span> <span class="pn">(</span><span class="op">!</span>rows<span class="pn">.</span><span class="op">length</span><span class="pn">)</span> <span class="pk">return</span> <span class="pn">[];</span>                          </span></div>
+<div class="ln sel"><span class="n">14</span><span class="g"></span><span class="t">                                                        </span></div>
+<div class="ln"><span class="n">15</span><span class="g"></span><span class="t">  <span class="pk">return</span> rows</span></div>
+<div class="ln"><span class="n">16</span><span class="g"></span><span class="t">    <span class="pn">.</span><span class="fn">sort</span><span class="pn">((</span><span class="pr">a</span><span class="pn">,</span> <span class="pr">b</span><span class="pn">)</span> <span class="op">=&gt;</span> b<span class="pn">.</span>createdAt <span class="op">-</span> a<span class="pn">.</span>createdAt<span class="pn">)</span></span></div>
+<div class="ln"><span class="n">17</span><span class="g"></span><span class="t">    <span class="pn">.</span><span class="fn">slice</span><span class="pn">(</span><span class="num">0</span><span class="pn">,</span> limit<span class="pn">)</span><span class="pn">;</span></span></div>
+<div class="ln"><span class="n">18</span><span class="g"></span><span class="t"><span class="pn">}</span></span></div>
+<div class="ln"><span class="n">19</span><span class="g"></span><span class="t"></span></div>
+<div class="ln"><span class="n">20</span><span class="g"><span class="er">✗</span></span><span class="t"><span class="kw">const</span> <span style="text-decoration:underline;text-decoration-style:wavy;text-decoration-color:#ff6369">stale</span> <span class="op">=</span> <span class="fn">listDeploymnets</span><span class="pn">(</span><span class="str">"prj_1"</span><span class="pn">)</span><span class="pn">;</span> <span class="er">■ 找不到名称 listDeploymnets</span></span></div>
+<div class="ln"><span class="n">21</span><span class="g"><span style="color:#62c073">│</span></span><span class="t"><span class="kw">export</span> <span class="kw">const</span> <span class="fn">revalidate</span> <span class="op">=</span> <span class="num">60</span><span class="pn">;</span></span></div>
+      </div>
+    </div>
+    <div class="st">
+      <span class="m">NORMAL</span>
+      <span class="b">⎇ main</span>
+      <span class="c">app/page.tsx</span>
+      <span class="r" style="color:#ff6369">✗ 1</span>
+      <span class="r" style="color:#ffcb47">▲ 0</span>
+      <span class="r">11:24</span>
+    </div>
+  </div>
+
+  <div class="pal">
+    <div class="sw"><div class="dot" style="background:#ededed"></div><div class="nm">正文</div><div class="hx">#ededed</div></div>
+    <div class="sw"><div class="dot" style="background:#7d7d7d"></div><div class="nm">注释</div><div class="hx">#7d7d7d</div></div>
+    <div class="sw"><div class="dot" style="background:#bf7af0"></div><div class="nm">关键字</div><div class="hx">#bf7af0</div></div>
+    <div class="sw"><div class="dot" style="background:#52a8ff"></div><div class="nm">函数</div><div class="hx">#52a8ff</div></div>
+    <div class="sw"><div class="dot" style="background:#62c073"></div><div class="nm">字符串</div><div class="hx">#62c073</div></div>
+    <div class="sw"><div class="dot" style="background:#ffcb47"></div><div class="nm">数字 / 常量</div><div class="hx">#ffcb47</div></div>
+    <div class="sw"><div class="dot" style="background:#50e3c2"></div><div class="nm">类型</div><div class="hx">#50e3c2</div></div>
+    <div class="sw"><div class="dot" style="background:#ff6fae"></div><div class="nm">导入 / 返回</div><div class="hx">#ff6fae</div></div>
+    <div class="sw"><div class="dot" style="background:#ff6369"></div><div class="nm">错误</div><div class="hx">#ff6369</div></div>
+    <div class="sw"><div class="dot" style="background:#1a1a1a;border:1px solid #2e2e2e"></div><div class="nm">当前行</div><div class="hx">#1a1a1a</div></div>
+    <div class="sw"><div class="dot" style="background:#003161"></div><div class="nm">选区</div><div class="hx">#003161</div></div>
+    <div class="sw"><div class="dot" style="background:#0a0a0a;border:1px solid #2e2e2e"></div><div class="nm">浮窗 / 侧栏</div><div class="hx">#0a0a0a</div></div>
+  </div>
+</div>
+</body>
+</html>
