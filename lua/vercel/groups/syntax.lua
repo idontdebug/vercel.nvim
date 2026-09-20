@@ -1,7 +1,7 @@
 local util = require("vercel.util")
 
----传统 Vim 语法组。设计原则：正文保持中性灰白，
----强调色只用于关键字、函数、字符串、字面量与类型五类。
+---Legacy Vim syntax groups. Design rule: body text stays neutral gray-white,
+---and accent colors are reserved for keywords, functions, strings, literals and types.
 return function(c, config)
   local s = config.styles
 

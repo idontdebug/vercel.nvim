@@ -2,19 +2,19 @@ local M = {}
 
 ---@class VercelConfig
 M.defaults = {
-  -- "black" = 纯黑 #000000（Vercel 官网风格）；"soft" = #0a0a0a
+  -- "black" = pure black #000000 (vercel.com style); "soft" = #0a0a0a
   background = "black",
-  -- 背景透明，交给终端渲染
+  -- Transparent background; let the terminal render it
   transparent = false,
-  -- 设置 g:terminal_color_0..15
+  -- Set g:terminal_color_0..15
   terminal_colors = true,
-  -- 非当前窗口使用更暗的背景
+  -- Use a darker background for non-current windows
   dim_inactive = false,
-  -- 浮动窗口边框："none" | "single"（single 时给 FloatBorder 单独上色）
+  -- Float window border: "none" | "single" (single colors FloatBorder separately)
   float_border = "single",
-  -- 侧边栏类窗口使用 bg_sidebar 背景
+  -- Sidebar-type windows use the bg_sidebar background
   sidebars = { "qf", "help", "NvimTree", "neo-tree", "Trouble", "trouble", "lazy", "mason", "fugitive" },
-  -- 各类语法元素的字体样式
+  -- Font styles for each kind of syntax element
   styles = {
     comments   = { italic = true },
     keywords   = { italic = false },
@@ -25,9 +25,9 @@ M.defaults = {
     booleans   = { bold = true },
     parameters = { italic = true },
   },
-  -- 在颜色生成后修改调色板：function(colors) end
+  -- Modify the palette after colors are generated: function(colors) end
   on_colors = nil,
-  -- 在高亮生成后修改高亮组：function(highlights, colors) end
+  -- Modify highlight groups after they are generated: function(highlights, colors) end
   on_highlights = nil,
 }
 

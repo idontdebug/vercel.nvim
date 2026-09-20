@@ -94,7 +94,7 @@ return function(c, config)
     Changed      = { fg = c.git_change },
     Removed      = { fg = c.git_delete },
 
-    -- 终端与其他
+    -- Terminal and misc
     debugPC      = { bg = c.diagnostic_bg.info },
     debugBreakpoint = { fg = c.red, bg = c.diagnostic_bg.error },
 
@@ -102,7 +102,7 @@ return function(c, config)
     healthSuccess = { fg = c.ok },
     healthWarning = { fg = c.warn },
 
-    -- 命令行补全 / 模式
+    -- Cmdline completion / mode
     NvimInternalError = { fg = c.error },
   }
 

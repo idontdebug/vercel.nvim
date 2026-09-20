@@ -4,7 +4,7 @@ return function(c, config)
   local s = config.styles
 
   return {
-    -- 标识符
+    -- Identifiers
     ["@variable"]                   = util.style({ fg = c.fg }, s.variables),
     ["@variable.builtin"]           = { fg = c.pink, italic = true },
     ["@variable.parameter"]         = util.style({ fg = c.fg_dim }, s.parameters),
@@ -19,7 +19,7 @@ return function(c, config)
     ["@module.builtin"]             = { fg = c.cyan, italic = true },
     ["@label"]                      = { fg = c.purple },
 
-    -- 字面量
+    -- Literals
     ["@string"]                     = util.style({ fg = c.green }, s.strings),
     ["@string.documentation"]       = { fg = c.green },
     ["@string.regexp"]              = { fg = c.cyan },
@@ -34,7 +34,7 @@ return function(c, config)
     ["@number"]                     = { fg = c.amber },
     ["@number.float"]               = { fg = c.amber },
 
-    -- 类型
+    -- Types
     ["@type"]                       = util.style({ fg = c.cyan }, s.types),
     ["@type.builtin"]               = util.style({ fg = c.cyan }, s.types),
     ["@type.definition"]            = util.style({ fg = c.cyan }, s.types),
@@ -43,7 +43,7 @@ return function(c, config)
     ["@attribute.builtin"]          = { fg = c.pink },
     ["@property"]                   = { fg = c.fg_dim },
 
-    -- 函数
+    -- Functions
     ["@function"]                   = util.style({ fg = c.blue }, s.functions),
     ["@function.builtin"]           = util.style({ fg = c.blue, italic = true }, s.functions),
     ["@function.call"]              = util.style({ fg = c.blue }, s.functions),
@@ -53,7 +53,7 @@ return function(c, config)
     ["@constructor"]                = { fg = c.cyan },
     ["@operator"]                   = { fg = c.fg_dim },
 
-    -- 关键字
+    -- Keywords
     ["@keyword"]                     = util.style({ fg = c.purple }, s.keywords),
     ["@keyword.coroutine"]           = util.style({ fg = c.purple }, s.keywords),
     ["@keyword.function"]            = util.style({ fg = c.purple }, s.keywords),
@@ -70,12 +70,12 @@ return function(c, config)
     ["@keyword.directive"]           = { fg = c.pink },
     ["@keyword.directive.define"]    = { fg = c.pink },
 
-    -- 标点
+    -- Punctuation
     ["@punctuation.delimiter"]      = { fg = c.fg_muted },
     ["@punctuation.bracket"]        = { fg = c.fg_muted },
     ["@punctuation.special"]        = { fg = c.pink },
 
-    -- 注释
+    -- Comments
     ["@comment"]                    = util.style({ fg = c.comment }, s.comments),
     ["@comment.documentation"]      = util.style({ fg = c.fg_subtle }, s.comments),
     ["@comment.error"]              = { fg = c.bg_dark, bg = c.error, bold = true },
@@ -83,7 +83,7 @@ return function(c, config)
     ["@comment.todo"]               = { fg = c.bg_dark, bg = c.blue, bold = true },
     ["@comment.note"]               = { fg = c.bg_dark, bg = c.cyan, bold = true },
 
-    -- 标记语言
+    -- Markup
     ["@markup"]                     = { fg = c.fg },
     ["@markup.strong"]              = { fg = c.fg, bold = true },
     ["@markup.italic"]              = { fg = c.fg, italic = true },
@@ -111,7 +111,7 @@ return function(c, config)
     ["@diff.minus"]                 = { fg = c.git_delete },
     ["@diff.delta"]                 = { fg = c.git_change },
 
-    -- 标签：HTML / JSX / Vue
+    -- Tags: HTML / JSX / Vue
     ["@tag"]                        = { fg = c.blue },
     ["@tag.builtin"]                = { fg = c.blue },
     ["@tag.attribute"]              = { fg = c.cyan, italic = true },
@@ -121,7 +121,7 @@ return function(c, config)
     ["@conceal"]                    = { fg = c.fg_faint },
     ["@error"]                      = { fg = c.error },
 
-    -- 按语言微调
+    -- Per-language tweaks
     ["@variable.member.yaml"]       = { fg = c.blue },
     ["@property.json"]              = { fg = c.blue },
     ["@property.jsonc"]             = { fg = c.blue },

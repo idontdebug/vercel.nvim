@@ -2,8 +2,8 @@ local M = {}
 
 local modules = { "editor", "syntax", "treesitter", "lsp", "plugins" }
 
----生成全部高亮组
----@param c table 颜色表
+---Generate all highlight groups
+---@param c table color table
 ---@param config table
 ---@return table<string, table>
 function M.setup(c, config)

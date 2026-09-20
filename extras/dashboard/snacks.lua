@@ -1,5 +1,5 @@
--- snacks.nvim 启动页，header 换成三角标志。
--- 这个文件不会被主题自动加载，把内容粘进你自己的 snacks 配置即可。
+-- snacks.nvim start screen with the triangle as its header.
+-- The theme does not load this file; paste its contents into your own snacks config.
 local logo = require("vercel.logo")
 
 require("snacks").setup({

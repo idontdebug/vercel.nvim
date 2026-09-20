@@ -7,10 +7,10 @@ local function hex_to_rgb(hex)
   return tonumber(hex:sub(1, 2), 16), tonumber(hex:sub(3, 4), 16), tonumber(hex:sub(5, 6), 16)
 end
 
----按 alpha 比例把 fg 混合到 bg 上
+---Blend fg onto bg by the alpha ratio
 ---@param fg string
 ---@param bg string
----@param alpha number 0..1，1 表示完全是 fg
+---@param alpha number 0..1, where 1 means pure fg
 ---@return string
 function M.blend(fg, bg, alpha)
   if fg == "NONE" or bg == "NONE" then
@@ -33,7 +33,7 @@ function M.lighten(hex, amount, fg)
   return M.blend(hex, fg or "#ffffff", amount)
 end
 
----合并若干 style 表（如 { italic = true }）到高亮定义
+---Merge style tables (e.g. { italic = true }) into a highlight definition
 ---@param base table
 ---@param ... table|nil
 ---@return table
@@ -47,7 +47,7 @@ function M.style(base, ...)
   return out
 end
 
----批量写入高亮组
+---Apply highlight groups in bulk
 ---@param groups table<string, table>
 function M.apply(groups)
   for name, spec in pairs(groups) do

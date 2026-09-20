@@ -1,24 +1,24 @@
--- snacks.nvim 的 explorer 和 picker 里的 git 状态图标，换成三角形。
--- 这个文件不会被主题自动加载，把内容粘进你自己的 snacks 配置即可。
+-- Triangle git-status icons for the snacks.nvim explorer and picker.
+-- The theme does not load this file; paste its contents into your own snacks config.
 --
--- snacks 的默认值是 modified = "○"、staged = "●"，用空心和实心区分两种状态。
--- 这里换成 △ 和 ▲，保持同样的区分方式，宽度也一样是一格。
--- 其余几个状态（added / deleted / renamed 等）保持 snacks 默认的 Nerd Font 图标，
--- 因为它们本来就靠形状区分，全换成三角反而分不出来。
+-- snacks defaults to modified = "○" and staged = "●", telling the two states apart by hollow vs solid.
+-- Here they become △ and ▲, keeping the same distinction and the same one-cell width.
+-- The other statuses (added / deleted / renamed, etc.) keep snacks' default Nerd Font icons,
+-- since they are already distinguished by shape and would be indistinguishable as triangles.
 local logo = require("vercel.logo")
 
 require("snacks").setup({
   picker = {
     icons = {
       git = {
-        modified = logo.outline, -- △ 已修改，未暂存
-        staged = logo.glyph, -- ▲ 已暂存
+        modified = logo.outline, -- △ modified, unstaged
+        staged = logo.glyph, -- ▲ staged
       },
     },
   },
 })
 
--- 如果你要连未跟踪的文件一起改：
+-- To change untracked files as well:
 --
 --   git = {
 --     modified  = logo.outline,

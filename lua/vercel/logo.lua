@@ -1,17 +1,17 @@
----三角标志的字符形式，供 lualine 组件和 dashboard header 使用。
----主题本身不会渲染这些字符，需要你在自己的插件配置里引用。
+---The triangle logo as characters, for lualine components and dashboard headers.
+---The theme never renders these characters itself; reference them from your own plugin config.
 ---
----图形不带前导空格：alpha-nvim、snacks.nvim、dashboard-nvim 都会逐行居中，
----自带缩进会和它们的居中叠加，把图形推向右边。需要自己居中时传 align = "center"。
+---The art has no leading spaces: alpha-nvim, snacks.nvim and dashboard-nvim center line by line,
+---so built-in indentation would stack with their centering and push the art to the right. Pass align = "center" to center it yourself.
 local M = {}
 
----单个字符，适合放在状态栏里
+---A single character, suited to the statusline
 M.glyph = "▲"
 
----空心版本，和 M.glyph 成对使用，比如区分已暂存和未暂存
+---Hollow variant, paired with M.glyph, e.g. to tell staged from unstaged
 M.outline = "△"
 
----4 行，适合窄终端
+---4 rows, for narrow terminals
 M.small = {
   "█",
   "███",
@@ -19,7 +19,7 @@ M.small = {
   "███████",
 }
 
----8 行，适合启动页
+---8 rows, for start screens
 M.large = {
   "█",
   "███",
@@ -41,7 +41,7 @@ local function max_width(lines)
   return width
 end
 
----把一行按 width 居中
+---Center a line within width
 ---@param line string
 ---@param width integer
 ---@return string
@@ -50,12 +50,12 @@ local function center(line, width)
   return string.rep(" ", pad) .. line
 end
 
----把标志和一行文字组成 header
+---Combine the logo and a line of text into a header
 ---@param opts table|nil
----  size  "large"（默认）或 "small"
----  text  标志下方的文字，默认 "vercel.nvim"，传 false 则不加
----  gap   标志与文字之间的空行数，默认 1
----  align "none"（默认，交给渲染方逐行居中）或 "center"（自己补前导空格）
+---  size  "large" (default) or "small"
+---  text  caption under the logo, default "vercel.nvim"; false omits it
+---  gap   blank lines between logo and caption, default 1
+---  align "none" (default, the renderer centers each line) or "center" (pad with leading spaces here)
 ---@return string[]
 function M.header(opts)
   opts = opts or {}
@@ -71,7 +71,7 @@ function M.header(opts)
   end
 
   if opts.align == "center" then
-    -- 文字可能比图形宽，按两者的较大值居中
+    -- The caption may be wider than the art, so center on the larger of the two
     width = math.max(width, text and vim.fn.strdisplaywidth(text) or 0)
     for i, line in ipairs(lines) do
       lines[i] = line ~= "" and center(line, width) or line

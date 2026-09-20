@@ -1,9 +1,9 @@
----一份现成的 lualine 配置，模式段带三角标志。
----颜色来自 lua/lualine/themes/vercel.lua；这个文件只负责 sections 的排布。
+---A ready-made lualine config whose mode section carries the triangle.
+---Colors come from lua/lualine/themes/vercel.lua; this file only lays out the sections.
 ---
 ---  require("vercel.lualine").setup()
 ---
----或者取出配置再自己改：
+---Or take the config and modify it yourself:
 ---
 ---  require("lualine").setup(require("vercel.lualine").opts({
 ---    options = { globalstatus = false },
@@ -12,14 +12,14 @@ local logo = require("vercel.logo")
 
 local M = {}
 
----@param overrides table|nil 深度合并到默认配置上
+---@param overrides table|nil deep-merged onto the defaults
 ---@return table
 function M.opts(overrides)
   local opts = {
     options = {
       theme = "vercel",
       globalstatus = true,
-      -- Geist 的界面不用分隔符，靠留白和底色分段
+      -- Geist's UI uses no separators; sections are divided by spacing and background
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
     },
@@ -57,7 +57,7 @@ function M.opts(overrides)
   return opts
 end
 
----等价于 require("lualine").setup(M.opts(overrides))
+---Equivalent to require("lualine").setup(M.opts(overrides))
 ---@param overrides table|nil
 function M.setup(overrides)
   require("lualine").setup(M.opts(overrides))

@@ -1,10 +1,10 @@
--- Vercel / Geist 调色板
--- 参考 Vercel Geist Design System 的暗色色阶。
+-- Vercel / Geist palette
+-- Based on the dark color scales of the Vercel Geist Design System.
 local M = {}
 
 ---@class VercelPalette
 local geist = {
-  -- 背景与灰阶（Geist gray, dark）
+  -- Backgrounds and grays (Geist gray, dark)
   black      = "#000000",
   bg_100     = "#0a0a0a",
   gray_100   = "#1a1a1a",
@@ -18,7 +18,7 @@ local geist = {
   gray_900   = "#a1a1a1",
   gray_1000  = "#ededed",
 
-  -- 强调色（Geist accent, dark）
+  -- Accents (Geist accent, dark)
   blue_700   = "#0072f5",
   blue_800   = "#0080ff",
   blue_900   = "#52a8ff",
@@ -48,7 +48,7 @@ local geist = {
 
 local util = require("vercel.util")
 
----根据配置生成完整颜色表
+---Build the full color table from the config
 ---@param config table
 ---@return table
 function M.get(config)
@@ -57,10 +57,10 @@ function M.get(config)
   local bg_alt = config.background == "soft" and g.gray_100 or g.bg_100
 
   local c = {
-    -- 原始色阶，供 on_highlights 使用
+    -- Raw scales, for use in on_highlights
     geist = g,
 
-    -- 灰阶别名
+    -- Gray scale aliases
     gray_100  = g.gray_100,
     gray_200  = g.gray_200,
     gray_300  = g.gray_300,
@@ -72,7 +72,7 @@ function M.get(config)
     gray_900  = g.gray_900,
     gray_1000 = g.gray_1000,
 
-    -- 背景
+    -- Backgrounds
     bg            = bg,
     bg_dark       = g.black,
     bg_alt        = bg_alt,
@@ -86,12 +86,12 @@ function M.get(config)
     bg_highlight  = g.gray_200,
     bg_inactive   = g.black,
 
-    -- 边框
+    -- Borders
     border        = g.gray_400,
     border_strong = g.gray_500,
     border_focus  = g.gray_700,
 
-    -- 前景
+    -- Foregrounds
     fg            = g.gray_1000,
     fg_dim        = g.gray_900,
     fg_muted      = g.gray_800,
@@ -100,7 +100,7 @@ function M.get(config)
     fg_gutter     = g.gray_600,
     comment       = g.gray_700,
 
-    -- 语法强调色
+    -- Syntax accents
     blue          = g.blue_900,
     blue_deep     = g.blue_700,
     cyan          = g.teal_900,
@@ -113,7 +113,7 @@ function M.get(config)
     pink          = g.pink_900,
     magenta       = g.pink_800,
 
-    -- 语义
+    -- Semantic
     error         = g.red_900,
     warn          = g.amber_900,
     info          = g.blue_900,
@@ -129,7 +129,7 @@ function M.get(config)
     none          = "NONE",
   }
 
-  -- diff 背景：低饱和叠加，不遮挡前景文字
+  -- diff backgrounds: low-saturation overlay that does not obscure foreground text
   c.diff = {
     add    = util.blend(c.git_add, bg, 0.15),
     change = util.blend(c.git_change, bg, 0.12),

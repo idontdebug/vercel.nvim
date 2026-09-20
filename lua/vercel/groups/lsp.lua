@@ -4,7 +4,7 @@ return function(c, config)
   local bg_float = config.transparent and c.none or c.bg_float
 
   return {
-    -- 诊断
+    -- Diagnostics
     DiagnosticError            = { fg = c.error },
     DiagnosticWarn             = { fg = c.warn },
     DiagnosticInfo             = { fg = c.info },
@@ -38,7 +38,7 @@ return function(c, config)
     DiagnosticUnnecessary      = { fg = c.fg_faint },
     DiagnosticDeprecated       = { fg = c.fg_muted, strikethrough = true },
 
-    -- LSP 通用
+    -- LSP general
     LspReferenceText            = { bg = c.gray_300 },
     LspReferenceRead            = { bg = c.gray_300 },
     LspReferenceWrite           = { bg = c.gray_400, underline = true },
@@ -49,7 +49,7 @@ return function(c, config)
     LspInlayHint                = { fg = c.fg_faint, bg = util.blend(c.fg_faint, c.bg, 0.10), italic = true },
     LspInfoBorder               = { fg = c.border, bg = bg_float },
 
-    -- 语义 token
+    -- Semantic tokens
     ["@lsp.type.boolean"]             = { link = "@boolean" },
     ["@lsp.type.builtinType"]         = { link = "@type.builtin" },
     ["@lsp.type.comment"]             = { link = "@comment" },

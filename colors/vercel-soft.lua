@@ -1,2 +1,2 @@
--- :colorscheme vercel-soft —— 背景使用 #0a0a0a 而非纯黑
+-- :colorscheme vercel-soft — uses #0a0a0a as the background instead of pure black
 require("vercel").load({ background = "soft" })

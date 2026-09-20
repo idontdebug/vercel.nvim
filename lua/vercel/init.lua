@@ -1,4 +1,4 @@
----vercel.nvim —— 以 Vercel Geist 设计系统为基础的 Neovim 暗色主题
+---vercel.nvim — a dark Neovim colorscheme based on the Vercel Geist design system
 local config = require("vercel.config")
 local palette = require("vercel.palette")
 local groups = require("vercel.groups")
@@ -13,7 +13,7 @@ function M.setup(opts)
   return config.setup(opts)
 end
 
----把调色板写入 g:terminal_color_0..15
+---Write the palette to g:terminal_color_0..15
 ---@param c table
 local function set_terminal_colors(c)
   local g = vim.g
@@ -35,7 +35,7 @@ local function set_terminal_colors(c)
   g.terminal_color_15 = c.fg
 end
 
----为侧边栏类窗口套用 NormalSB 背景
+---Apply the NormalSB background to sidebar-type windows
 ---@param opts table
 local function setup_sidebars(opts)
   if not opts.sidebars or #opts.sidebars == 0 then
@@ -51,8 +51,8 @@ local function setup_sidebars(opts)
   })
 end
 
----加载主题
----@param opts table|nil 一次性覆盖配置，不写回全局设置
+---Load the colorscheme
+---@param opts table|nil one-off config overrides, not written back to the global settings
 function M.load(opts)
   local o = config.extend(opts)
 
@@ -76,7 +76,7 @@ function M.load(opts)
   return c
 end
 
----取得当前配置下的调色板（不加载主题）
+---Get the palette for the current config (without loading the theme)
 ---@param opts table|nil
 ---@return table
 function M.palette(opts)

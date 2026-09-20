@@ -214,7 +214,7 @@ return function(c, config)
     IblIndent    = { fg = c.gray_300 },
     IblWhitespace = { fg = c.gray_300 },
     IblScope     = { fg = c.gray_500 },
-    -- v2 兼容
+    -- v2 compatibility
     IndentBlanklineChar        = { fg = c.gray_300 },
     IndentBlanklineContextChar = { fg = c.gray_500 },
 
@@ -332,7 +332,7 @@ return function(c, config)
     NoiceLspProgressSpinner = { fg = c.cyan },
 
     ----------------------------------------------------------------
-    -- 其他常用插件
+    -- Other common plugins
     ----------------------------------------------------------------
     -- lazy.nvim
     LazyNormal         = { fg = c.fg_dim, bg = bg_float },

@@ -1,4 +1,4 @@
--- lualine 主题：require("lualine").setup({ options = { theme = "vercel" } })
+-- lualine theme: require("lualine").setup({ options = { theme = "vercel" } })
 local ok, vercel = pcall(require, "vercel")
 if not ok then
   return {}
