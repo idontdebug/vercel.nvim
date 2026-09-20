@@ -12,9 +12,9 @@
 
 ## 预览
 
-![Zig 源码下的 vercel.nvim](assets/zig.png)
+![Neovim 中的 vercel.nvim](assets/screenshot.png)
 
-*Zig 代码，开启了 ZLS 的 inlay hint，配合 bufferline 和 lualine。*
+*主题自己的 lualine 模块，左侧是文件树，状态栏是 `▲ NORMAL`。*
 
 用浏览器打开 [`preview.html`](preview.html)，可以看到完整调色板和模拟的编辑器窗口。
 

@@ -15,9 +15,9 @@ Requires Neovim 0.9+ and a terminal with true color support (`termguicolors`).
 
 ## Preview
 
-![vercel.nvim on a Zig source file](assets/zig.png)
+![vercel.nvim in Neovim](assets/screenshot.png)
 
-*Zig with ZLS inlay hints, bufferline, and lualine.*
+*The theme's own lualine module, with a file explorer and the `▲ NORMAL` statusline.*
 
 Open [`preview.html`](preview.html) in a browser for the full palette alongside a mock editor
 window.
