@@ -1,4 +1,4 @@
-# vercel.nvim
+# ▲ vercel.nvim
 
 A dark Neovim colorscheme built on Vercel's [Geist](https://vercel.com/geist/introduction) design
 system: pure black background, neutral gray body text, and accent colors reserved for the few
@@ -219,6 +219,56 @@ require("lualine").setup({
 
 Mode accents: normal white, insert blue, visual purple, replace red, command amber, terminal green.
 
+## The triangle
+
+A colorscheme can only define highlight groups — what colors text gets. Which characters reach the
+screen is decided by your other plugins, so the triangle ships as opt-in pieces instead of
+something the theme forces into your config.
+
+**Statusline.** A complete lualine config whose mode section renders as `▲ NORMAL`:
+
+```lua
+require("vercel.lualine").setup()
+```
+
+It uses the `vercel` lualine theme. Pass a table to override any part of it:
+
+```lua
+require("vercel.lualine").setup({ options = { globalstatus = false } })
+```
+
+`require("vercel.lualine").opts()` returns the same table without calling `lualine.setup()`, if you
+would rather merge it yourself.
+
+**Start screen.** Headers for alpha-nvim, snacks.nvim and dashboard-nvim live in
+[`extras/dashboard/`](extras/dashboard). Each file is a working config — copy the one you use.
+
+```
+       █
+      ███
+     █████
+    ███████
+   █████████
+  ███████████
+ █████████████
+███████████████
+
+  vercel.nvim
+```
+
+**The characters themselves:**
+
+```lua
+local logo = require("vercel.logo")
+
+logo.glyph   -- "▲"
+logo.small   -- 4 rows, for narrow terminals
+logo.large   -- 8 rows
+logo.header({ size = "large", text = "vercel.nvim" })  -- logo plus a centered caption
+```
+
+`text = false` drops the caption; `gap` sets the number of blank lines between logo and caption.
+
 ## Supported plugins
 
 telescope.nvim, fzf-lua, nvim-cmp, blink.cmp, gitsigns.nvim, neo-tree.nvim, nvim-tree.lua,
@@ -239,6 +289,8 @@ vercel.nvim/
 ├── colors/
 │   ├── vercel.lua              -- :colorscheme vercel
 │   └── vercel-soft.lua         -- :colorscheme vercel-soft
+├── extras/
+│   └── dashboard/              -- optional start-screen headers (alpha, snacks, dashboard-nvim)
 └── lua/
     ├── lualine/themes/vercel.lua
     └── vercel/
@@ -246,6 +298,8 @@ vercel.nvim/
         ├── config.lua          -- defaults
         ├── palette.lua         -- Geist scale and semantic colors
         ├── util.lua            -- color blending, style merging, applying highlights
+        ├── logo.lua            -- the triangle as characters
+        ├── lualine.lua         -- ready-made lualine config
         └── groups/
             ├── init.lua        -- collects the modules, runs on_highlights
             ├── editor.lua      -- editor UI

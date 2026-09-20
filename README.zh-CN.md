@@ -1,4 +1,4 @@
-# vercel.nvim
+# ▲ vercel.nvim
 
 以 Vercel [Geist](https://vercel.com/geist/introduction) 设计系统为基础的 Neovim 暗色主题：
 纯黑背景、单色灰阶正文、少量高饱和强调色。
@@ -183,6 +183,55 @@ require("lualine").setup({
 
 各模式的强调色：普通模式白色、插入蓝色、可视紫色、替换红色、命令琥珀色、终端绿色。
 
+## 三角标志
+
+配色主题只能定义高亮组，也就是"文字用什么颜色"；屏幕上出现哪些字符由你的其他插件决定。
+所以三角标志以可选片段的形式提供，主题不会自动往你的配置里塞东西。
+
+**状态栏。** 一份完整的 lualine 配置，模式段显示为 `▲ NORMAL`：
+
+```lua
+require("vercel.lualine").setup()
+```
+
+它使用 `vercel` 这个 lualine 主题。传一个表可以覆盖其中任何一项：
+
+```lua
+require("vercel.lualine").setup({ options = { globalstatus = false } })
+```
+
+如果你想自己合并配置，用 `require("vercel.lualine").opts()` 取回同一张表，它不会调用
+`lualine.setup()`。
+
+**启动页。** alpha-nvim、snacks.nvim、dashboard-nvim 三个插件的 header 片段在
+[`extras/dashboard/`](extras/dashboard) 目录，每个文件都是可直接运行的配置，取你在用的那个粘进去。
+
+```
+       █
+      ███
+     █████
+    ███████
+   █████████
+  ███████████
+ █████████████
+███████████████
+
+  vercel.nvim
+```
+
+**标志字符本身：**
+
+```lua
+local logo = require("vercel.logo")
+
+logo.glyph   -- "▲"
+logo.small   -- 4 行，窄终端用
+logo.large   -- 8 行
+logo.header({ size = "large", text = "vercel.nvim" })  -- 标志加一行居中文字
+```
+
+`text = false` 去掉文字行，`gap` 控制标志和文字之间的空行数。
+
 ## 已适配的插件
 
 telescope.nvim、fzf-lua、nvim-cmp、blink.cmp、gitsigns.nvim、neo-tree.nvim、nvim-tree.lua、
@@ -202,6 +251,8 @@ vercel-nvim/
 ├── colors/
 │   ├── vercel.lua              -- :colorscheme vercel
 │   └── vercel-soft.lua         -- :colorscheme vercel-soft
+├── extras/
+│   └── dashboard/              -- 可选的启动页 header（alpha / snacks / dashboard-nvim）
 └── lua/
     ├── lualine/themes/vercel.lua
     └── vercel/
@@ -209,6 +260,8 @@ vercel-nvim/
         ├── config.lua          -- 默认配置
         ├── palette.lua         -- Geist 色阶与语义色
         ├── util.lua            -- 颜色混合、样式合并、写入高亮
+        ├── logo.lua            -- 三角标志的字符形式
+        ├── lualine.lua         -- 现成的 lualine 配置
         └── groups/
             ├── init.lua        -- 汇总各模块并执行 on_highlights
             ├── editor.lua      -- 编辑器界面
