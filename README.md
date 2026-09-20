@@ -256,12 +256,17 @@ would rather merge it yourself.
   vercel.nvim
 ```
 
+**File tree git icons.** The symbol marking a changed file can be a triangle too —
+[`extras/git-icons/`](extras/git-icons) has snippets for snacks.nvim and neo-tree.nvim that swap
+the default `○` / `●` pair for `△` / `▲`, keeping the same hollow-versus-filled distinction.
+
 **The characters themselves:**
 
 ```lua
 local logo = require("vercel.logo")
 
 logo.glyph   -- "▲"
+logo.outline -- "△", the hollow counterpart
 logo.small   -- 4 rows, for narrow terminals
 logo.large   -- 8 rows
 logo.header({ size = "large", text = "vercel.nvim" })  -- logo plus a caption line

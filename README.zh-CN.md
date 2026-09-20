@@ -219,12 +219,17 @@ require("vercel.lualine").setup({ options = { globalstatus = false } })
   vercel.nvim
 ```
 
+**文件树的 git 图标。** 标记改动的符号也可以换成三角，
+[`extras/git-icons/`](extras/git-icons) 里有 snacks.nvim 和 neo-tree.nvim 的片段，
+把默认的 `○` / `●` 换成 `△` / `▲`，保留空心和实心的区分。
+
 **标志字符本身：**
 
 ```lua
 local logo = require("vercel.logo")
 
 logo.glyph   -- "▲"
+logo.outline -- "△"，空心版本
 logo.small   -- 4 行，窄终端用
 logo.large   -- 8 行
 logo.header({ size = "large", text = "vercel.nvim" })  -- 标志加一行文字
