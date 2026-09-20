@@ -50,7 +50,9 @@ local logo = require("vercel.logo")
 logo.glyph   -- "▲"
 logo.small   -- 4 行，窄终端用
 logo.large   -- 8 行
-logo.header({ size = "large", text = "vercel.nvim" })  -- 标志 + 居中文字
+logo.header({ size = "large", text = "vercel.nvim" })  -- 标志 + 下方文字
 ```
 
-`header()` 的 `text` 传 `false` 可以去掉文字行，`gap` 控制标志和文字之间的空行数。
+`header()` 返回的各行不带前导空格——上面三个插件都会逐行居中，自带缩进会和居中叠加，把三角形推歪。
+渲染方如果是左对齐的，传 `align = "center"` 由函数自己补空格。`text` 传 `false` 去掉文字行，
+`gap` 控制标志和文字之间的空行数。

@@ -227,10 +227,12 @@ local logo = require("vercel.logo")
 logo.glyph   -- "▲"
 logo.small   -- 4 行，窄终端用
 logo.large   -- 8 行
-logo.header({ size = "large", text = "vercel.nvim" })  -- 标志加一行居中文字
+logo.header({ size = "large", text = "vercel.nvim" })  -- 标志加一行文字
 ```
 
-`text = false` 去掉文字行，`gap` 控制标志和文字之间的空行数。
+图形各行不带前导空格。alpha-nvim、snacks.nvim、dashboard-nvim 都会把 header 逐行居中，
+自带缩进会叠加在居中之上，把每一行按各自的缩进量推向右边，三角形就歪了。如果渲染方是左对齐的，
+传 `align = "center"` 由这个函数补空格。`text = false` 去掉文字行，`gap` 控制标志和文字之间的空行数。
 
 ## 已适配的插件
 

@@ -264,10 +264,14 @@ local logo = require("vercel.logo")
 logo.glyph   -- "▲"
 logo.small   -- 4 rows, for narrow terminals
 logo.large   -- 8 rows
-logo.header({ size = "large", text = "vercel.nvim" })  -- logo plus a centered caption
+logo.header({ size = "large", text = "vercel.nvim" })  -- logo plus a caption line
 ```
 
-`text = false` drops the caption; `gap` sets the number of blank lines between logo and caption.
+The rows carry no leading spaces. alpha-nvim, snacks.nvim and dashboard-nvim all center each line
+of the header, and built-in indentation would be added on top of that, pushing every row right by
+its own indent and skewing the triangle. For a renderer that left-aligns instead, pass
+`align = "center"` and the padding is added for you. `text = false` drops the caption; `gap` sets
+the number of blank lines between logo and caption.
 
 ## Supported plugins
 
