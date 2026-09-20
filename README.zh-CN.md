@@ -12,7 +12,11 @@
 
 ## 预览
 
-用浏览器打开 [`preview.html`](preview.html)，可以看到模拟的编辑器窗口和完整调色板。
+![Zig 源码下的 vercel.nvim](assets/zig.png)
+
+*Zig 代码，开启了 ZLS 的 inlay hint，配合 bufferline 和 lualine。*
+
+用浏览器打开 [`preview.html`](preview.html)，可以看到完整调色板和模拟的编辑器窗口。
 
 ## 设计规则
 

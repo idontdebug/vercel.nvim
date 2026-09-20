@@ -15,7 +15,12 @@ Requires Neovim 0.9+ and a terminal with true color support (`termguicolors`).
 
 ## Preview
 
-Open [`preview.html`](preview.html) in a browser for a mock editor window and the full palette.
+![vercel.nvim on a Zig source file](assets/zig.png)
+
+*Zig with ZLS inlay hints, bufferline, and lualine.*
+
+Open [`preview.html`](preview.html) in a browser for the full palette alongside a mock editor
+window.
 
 ```tsx
 // Fetch deployments and sort by creation time
