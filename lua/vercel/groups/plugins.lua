@@ -204,8 +204,9 @@ return function(c, config)
     BufferLineModified          = { fg = c.amber, bg = c.bg_alt },
     BufferLineModifiedVisible   = { fg = c.amber, bg = c.bg_alt },
     BufferLineModifiedSelected  = { fg = c.amber, bg = bg },
-    BufferLineCloseButton       = { fg = c.fg_faint, bg = c.bg_alt },
-    BufferLineCloseButtonSelected = { fg = c.red, bg = bg },
+    BufferLineCloseButton         = { fg = c.fg_faint, bg = c.bg_alt },
+    BufferLineCloseButtonVisible  = { fg = c.fg_faint, bg = c.bg_alt },
+    BufferLineCloseButtonSelected = { fg = c.fg_muted, bg = bg },
 
     ----------------------------------------------------------------
     -- indent-blankline.nvim（v3）
